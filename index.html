@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <title>MAPFURRY</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="#" class="logo">MAPFURRY</a>
+
+    <button class="menu-button" id="menuButton"
+      aria-label="メニューを開く"
+      aria-controls="menuPanel"
+      aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <nav class="menu-panel" id="menuPanel" aria-hidden="true">
+    <div class="menu-inner">
+      <a href="#top">TOP</a>
+      <a href="#about">ABOUT</a>
+      <a href="#contents">CONTENTS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-image" id="heroImage"></div>
+
+      <div class="hero-overlay" id="heroOverlay"></div>
+
+      <div class="hero-content" id="heroContent">
+        <p class="hero-kicker">WELCOME TO</p>
+        <h1>MAPFURRY</h1>
+        <p class="hero-copy">Personal website / archive / experiments</p>
+      </div>
+
+      <div class="scroll-guide">
+        <span>SCROLL</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="content-section" id="about">
+      <div class="section-inner">
+        <p class="section-label">01 / ABOUT</p>
+        <h2>ここから下に<br>コンテンツを増やしていく。</h2>
+        <p>
+          今は仮置き。メインビジュアルをスクロールすると、
+          画像が少しずつぼけながら暗くなって消えていく構成。
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section alt" id="contents">
+      <div class="section-inner">
+        <p class="section-label">02 / CONTENTS</p>
+        <h2>PROJECTS / GALLERY / BLOG / ???</h2>
+        <p>
+          後からカード、ギャラリー、アニメーション、
+          アステ、制作物、謎ページなどを好き放題追加できる。
+        </p>
+      </div>
+    </section>
+
+    <section class="content-section" id="contact">
+      <div class="section-inner">
+        <p class="section-label">03 / CONTACT</p>
+        <h2>CONTACT</h2>
+        <p>ここもまだ仮。</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

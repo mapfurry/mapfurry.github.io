@@ -1,0 +1,283 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #101010;
+  color: #f5f5f5;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 28px;
+  mix-blend-mode: difference;
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+}
+
+.menu-button {
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 1100;
+}
+
+.menu-button span {
+  position: absolute;
+  left: 8px;
+  width: 32px;
+  height: 2px;
+  background: #fff;
+  transition: transform .35s ease, top .35s ease, opacity .25s ease;
+}
+
+.menu-button span:nth-child(1) {
+  top: 14px;
+}
+
+.menu-button span:nth-child(2) {
+  top: 23px;
+}
+
+.menu-button span:nth-child(3) {
+  top: 32px;
+}
+
+.menu-button.is-open span:nth-child(1) {
+  top: 23px;
+  transform: rotate(45deg);
+}
+
+.menu-button.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.is-open span:nth-child(3) {
+  top: 23px;
+  transform: rotate(-45deg);
+}
+
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 900;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .35s ease, visibility .35s ease;
+}
+
+.menu-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  text-align: center;
+}
+
+.menu-inner a {
+  font-size: clamp(28px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.menu-inner a:hover {
+  opacity: .55;
+  transform: translateX(8px);
+}
+
+.hero {
+  position: relative;
+  height: 130vh;
+  min-height: 760px;
+  overflow: clip;
+  background: #111;
+}
+
+.hero-image {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,.08),
+      rgba(0,0,0,.18) 55%,
+      rgba(0,0,0,.55) 100%
+    ),
+    url("images/hero.jpg") center center / cover no-repeat;
+  transform: scale(1.04);
+  will-change: filter, opacity, transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  pointer-events: none;
+  background: #101010;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.hero-content {
+  position: absolute;
+  inset: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 7vw 10vh;
+  pointer-events: none;
+  will-change: opacity, transform, filter;
+}
+
+.hero-kicker {
+  margin: 0 0 10px;
+  font-size: 12px;
+  letter-spacing: .35em;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(64px, 15vw, 210px);
+  line-height: .82;
+  letter-spacing: -0.07em;
+}
+
+.hero-copy {
+  margin: 28px 0 0;
+  font-size: clamp(14px, 2vw, 18px);
+  opacity: .78;
+}
+
+.scroll-guide {
+  position: absolute;
+  right: 24px;
+  top: calc(100vh - 150px);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: rotate(90deg);
+  transform-origin: right center;
+  font-size: 10px;
+  letter-spacing: .26em;
+}
+
+.scroll-line {
+  width: 70px;
+  height: 1px;
+  background: rgba(255,255,255,.7);
+}
+
+.content-section {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 120px 7vw;
+  background: #101010;
+}
+
+.content-section.alt {
+  background: #171717;
+}
+
+.section-inner {
+  width: min(1100px, 100%);
+}
+
+.section-label {
+  margin: 0 0 32px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .28em;
+  opacity: .55;
+}
+
+.section-inner h2 {
+  margin: 0 0 32px;
+  max-width: 950px;
+  font-size: clamp(42px, 8vw, 110px);
+  line-height: .92;
+  letter-spacing: -0.05em;
+}
+
+.section-inner p:last-child {
+  max-width: 680px;
+  font-size: 16px;
+  line-height: 1.9;
+  opacity: .68;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    padding: 18px;
+  }
+
+  .hero {
+    min-height: 680px;
+  }
+
+  .hero-content {
+    padding: 0 22px 11vh;
+  }
+
+  .scroll-guide {
+    right: 18px;
+  }
+
+  .content-section {
+    padding: 96px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
